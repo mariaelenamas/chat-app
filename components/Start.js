@@ -10,7 +10,6 @@ const Start = ({ navigation }) => {
         setSelectedColor(color);
     };
 
-
     return (
         <View style={[styles.container, { backgroundColor: selectedColor }]}>
             <Text>Hello Start!</Text>
@@ -23,19 +22,19 @@ const Start = ({ navigation }) => {
             <View style={styles.Box}  >
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor1, styles.colorInput1]}
-                    onPress={() => handleColorChange("#DDDDDD")}
+                    onPress={() => handleColorChange("#090C08")}
                 ></TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor2, styles.colorInput2]}
-                    onPress={() => handleColorChange("#008000")}
+                    onPress={() => handleColorChange("#474056")}
                 ></TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor3, styles.colorInput3]}
-                    onPress={() => handleColorChange("#FFFF00")}
+                    onPress={() => handleColorChange("#8A95A5")}
                 ></TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor4, styles.colorInput4]}
-                    onPress={() => handleColorChange("#FF0000")}
+                    onPress={() => handleColorChange("#B9C6AE")}
                 ></TouchableOpacity>
             </View>
 
@@ -85,28 +84,28 @@ const styles = StyleSheet.create({
         backgroundColor: "#DDDDDD"
     },
     colorInput1: {
-        backgroundColor: "#DDDDDD"
+        backgroundColor: "#090C08"
     },
 
     circleColor2: {
         backgroundColor: "#DDDDDD"
     },
     colorInput2: {
-        backgroundColor: "#008000"
+        backgroundColor: "#474056"
     },
 
     circleColor3: {
         backgroundColor: "#DDDDDD"
     },
     colorInput3: {
-        backgroundColor: "#FFFF00"
+        backgroundColor: "#8A95A5"
     },
 
     circleColor4: {
         backgroundColor: "#DDDDDD"
     },
     colorInput4: {
-        backgroundColor: "#FF0000"
+        backgroundColor: "#B9C6AE"
     },
 
 });
