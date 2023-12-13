@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, KeyboardAvoidingView } from "react-native";
 import { Bubble, GiftedChat } from "react-native-gifted-chat";
 
 const Chat = ({ route, navigation }) => {
@@ -68,7 +68,7 @@ const renderBubble = (props) => {
                 backgroundColor: "#000"
             },
             left: {
-                backgroundColor: "#FFF"
+                backgroundColor: "#4785"
             }
         }}
     />
