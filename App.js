@@ -1,21 +1,16 @@
+// import react Navigation
 import Start from "./components/Start.js";
 import Chat from "./components/Chat.js";
 
+// import react Navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useState } from "react";
 import { StyleSheet } from "react-native";
 
-
+// Create the navigator
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [text, setText] = useState("");
-
-  // alert the user input (`text` state"s value)
-  const alertMyText = () => {
-    Alert.alert(text);
-  }
 
   return (
     <NavigationContainer>
