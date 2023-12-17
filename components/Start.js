@@ -6,10 +6,6 @@ const Start = ({ navigation }) => {
 
     const [selectedColor, setSelectedColor] = useState("#DDDDDD");
 
-    const handleColorChange = (color) => {
-        setSelectedColor(color);
-    };
-
     return (
         <View style={[styles.container, { backgroundColor: selectedColor }]}>
             <Text>Hello Start!</Text>
@@ -22,19 +18,19 @@ const Start = ({ navigation }) => {
             <View style={styles.Box}  >
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor1, styles.colorInput1]}
-                    onPress={() => handleColorChange("#090C08")}
+                    onPress={() => setSelectedColor("#090C08")}
                 ></TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor2, styles.colorInput2]}
-                    onPress={() => handleColorChange("#474056")}
+                    onPress={() => setSelectedColor("#474056")}
                 ></TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor3, styles.colorInput3]}
-                    onPress={() => handleColorChange("#8A95A5")}
+                    onPress={() => setSelectedColor("#8A95A5")}
                 ></TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.circle, styles.circleColor4, styles.colorInput4]}
-                    onPress={() => handleColorChange("#B9C6AE")}
+                    onPress={() => setSelectedColor("#B9C6AE")}
                 ></TouchableOpacity>
             </View>
 
