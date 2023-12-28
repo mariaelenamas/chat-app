@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import { Bubble, GiftedChat, InputToolbar } from "react-native-gifted-chat";
 import { onSnapshot, collection, query, addDoc, orderBy } from "firebase/firestore";
+import MapView from "react-native-maps";
+import CustomActions from "./CustomActions";
 
 const Chat = ({ route, navigation, db, isConnected, storage }) => {
     const { name } = route.params;
@@ -28,8 +30,8 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
             console.log(error.message);
         }
     };
-    let unsubMessages;
 
+    let unsubMessages;
     useEffect(() => {
         navigation.setOptions({ title: name });
         if (isConnected === true) {
@@ -53,7 +55,7 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
 
             // Clean up code
             return () => {
-                if (unsubShoppinglists) unsubShoppinglists();
+                if (unsubMessages) unsubMessages();
             };
         }
 
@@ -67,18 +69,62 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
         else return null;
     };
 
+    const renderCustomActions = (props) => {
+        return <CustomActions storage={storage} {...props} />;
+    };
+
+    const renderCustomView = (props) => {
+        const { currentMessage } = props;
+        if (currentMessage.location) {
+            return (
+                <MapView
+                    style={{
+                        width: 150,
+                        height: 100,
+                        borderRadius: 13,
+                        margin: 3
+                    }}
+                    region={{
+                        latitude: currentMessage.location.latitude,
+                        longitude: currentMessage.location.longitude,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
+                />
+            );
+        }
+        return null;
+    }
+
+    const renderBubble = (props) => {
+        return <Bubble
+            {...props}
+            wrapperStyle={{
+                right: {
+                    backgroundColor: "#000"
+                },
+                left: {
+                    backgroundColor: "#4785"
+                }
+            }}
+        />
+    }
+
     return (
         <KeyboardAvoidingView
             style={{ flex: 1 }}
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            behavior={Platform.OS === "ios" ? "padding" : null}
         >
             <GiftedChat
                 messages={messages}
                 renderBubble={renderBubble}
                 renderInputToolbar={renderInputToolbar}
                 onSend={(messages) => onSend(messages)}
+                renderActions={renderCustomActions}
+                renderCustomView={renderCustomView}
                 user={{
                     _id: 1,
+                    name: name
                 }}
             />
         </KeyboardAvoidingView>
@@ -92,19 +138,5 @@ const styles = StyleSheet.create({
         alignItems: "center"
     }
 });
-
-const renderBubble = (props) => {
-    return <Bubble
-        {...props}
-        wrapperStyle={{
-            right: {
-                backgroundColor: "#000"
-            },
-            left: {
-                backgroundColor: "#4785"
-            }
-        }}
-    />
-}
 
 export default Chat;
