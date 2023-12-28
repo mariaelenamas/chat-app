@@ -7,29 +7,30 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const CustomActions = ({ wrapperStyle, iconTextStyle, onSend, storage, userID }) => {
     const actionSheet = useActionSheet();
 
-    const onActionPress = () => { }
-    const options = ["Choose From Library", "Take Picture", "Send Location", "Cancel"];
-    const cancelButtonIndex = options.length - 1;
+    const onActionPress = () => {
+        const options = ["Choose From Library", "Take Picture", "Send Location", "Cancel"];
+        const cancelButtonIndex = options.length - 1;
 
-    actionSheet.showActionSheetWithOptions(
-        {
-            options,
-            cancelButtonIndex,
-        },
-        async (buttonIndex) => {
-            switch (buttonIndex) {
-                case 0:
-                    pickImage();
-                    return;
-                case 1:
-                    takePhoto();
-                    return;
-                case 2:
-                    getLocation();
-                default:
-            }
-        },
-    );
+        actionSheet.showActionSheetWithOptions(
+            {
+                options,
+                cancelButtonIndex,
+            },
+            async (buttonIndex) => {
+                switch (buttonIndex) {
+                    case 0:
+                        pickImage();
+                        return;
+                    case 1:
+                        takePhoto();
+                        return;
+                    case 2:
+                        getLocation();
+                    default:
+                }
+            },
+        );
+    };
 
     const pickImage = async () => {
         let permissions = await ImagePicker.requestMediaLibraryPermissionsAsync();
