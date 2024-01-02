@@ -7,7 +7,7 @@ import MapView from "react-native-maps";
 import CustomActions from "./CustomActions";
 
 const Chat = ({ route, navigation, db, isConnected, storage }) => {
-    const { name } = route.params;
+    const { name, background } = route.params;
     const [messages, setMessages] = useState([]);
     const onSend = (newMessages) => {
         addDoc(collection(db, "messages"), newMessages[0]);
@@ -112,8 +112,8 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
 
     return (
         <KeyboardAvoidingView
-            style={{ flex: 1 }}
-            behavior={Platform.OS === "ios" ? "padding" : null}
+            style={[styles.container, { backgroundColor: background }]}
+            behavior={Platform.OS === "ios"}
         >
             <GiftedChat
                 messages={messages}
@@ -133,9 +133,7 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        flex: 1
     }
 });
 
