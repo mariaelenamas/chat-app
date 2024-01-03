@@ -25,7 +25,7 @@ The goal of this project is to create a mobile Chat App using React Native, prov
 ## Getting Started
 
 ### Prerequisites
-- Node.js installed
+- Node.js installed (make sure to downgrade to version “16.19.0”)
 - Expo CLI installed (`npm install -g expo-cli`)
 
 ### Installation Steps
