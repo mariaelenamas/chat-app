@@ -2,6 +2,17 @@
 
 ## Overview
 
+### Image
+
+![Alt Text](assets/chatapp-hompage.jpg)
+
+### Video
+
+<video width="320" height="240" controls>
+  <source src="assets/videochatapp.MP4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ### Objective
 The goal of this project is to create a mobile Chat App using React Native, providing users with a dynamic chat interface. The application will support image and location sharing features.
 
