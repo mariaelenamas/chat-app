@@ -31,7 +31,7 @@ const Start = ({ navigation }) => {
 
     return (
         <View style={[styles.container, { backgroundColor: background }]}>
-            <ImageBackground source={require('../assets/Background-Image.png')} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={require("../assets/background-image.png")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.title}>Chat App</Text>
                 <View style={styles.Box}>
                     <TextInput
