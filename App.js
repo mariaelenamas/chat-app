@@ -20,6 +20,7 @@ LogBox.ignoreLogs([
 import { useEffect } from "react";
 import { useNetInfo } from "@react-native-community/netinfo";
 
+import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGE_SENDER, APP_ID } from '@env'
 // Create the navigator
 const Stack = createNativeStackNavigator();
 
@@ -27,12 +28,12 @@ const App = () => {
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyDu36bhkvWUPr1QbKCTAlVO8o2eSEEOdbI",
-    authDomain: "meetapp-f1734.firebaseapp.com",
-    projectId: "meetapp-f1734",
-    storageBucket: "meetapp-f1734.appspot.com",
-    messagingSenderId: "1083826638375",
-    appId: "1:1083826638375:web:64e9c178756a6f29a24802"
+    apiKey: API_KEY,
+    authDomain: AUTH_DOMAIN,
+    projectId: PROJECT_ID,
+    storageBucket: STORAGE_BUCKET,
+    messagingSenderId: MESSAGE_SENDER,
+    appId: APP_ID
   };
 
   // Connection Status
